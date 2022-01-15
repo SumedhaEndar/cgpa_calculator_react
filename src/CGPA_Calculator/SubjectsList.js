@@ -6,7 +6,8 @@ function SubjectsList(props)
 
     function pointsHandler(e)
     {
-        props.onSaveUpdateGPAPoints(e.target.value)
+        let updatePoints = [props.subjectData.id,e.target.value];
+        props.onSaveUpdateGPAPoints(updatePoints);
     }
 
     return(

@@ -36,10 +36,24 @@ function Semesters(props)
         })
     }
 
-    function saveUpdateGPAPoints(enteredUpdatePoints)
+    function saveUpdateGPAPoints(enterUpdatePoints)
     {
-        console.log(enteredUpdatePoints);
+        // Duplicate a DUMMY for each sem
+        let temp_updateGPA = [...updateGPA];
+
+        for(let i in temp_updateGPA)
+        {
+            if(temp_updateGPA[i].id === enterUpdatePoints[0])
+            {
+                let temp_Points = {...temp_updateGPA[i]};
+                temp_Points.points = +enterUpdatePoints[1];
+                temp_updateGPA[i] = temp_Points;
+                
+                setUpdateGPA(temp_updateGPA);
+            }
+        }
     }
+    console.log(updateGPA);
 
     return(
         <div>
