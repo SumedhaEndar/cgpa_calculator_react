@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import Semesters from "./CGPA_Calculator/Semesters";
 
 
@@ -14,15 +14,31 @@ import Semesters from "./CGPA_Calculator/Semesters";
 
 function App() {
 
+  const [updateSem, setUpdateSem] = useState(semNum);
+  
+  function addSemesterHandler()
+  {
+    const newSem = {
+      id : Math.random().toString(),
+      sem : updateSem.length + 1,
+      gpa : 0,
+      hours : 0
+    }
+    setUpdateSem((prevSem)=>{
+      return [...prevSem, newSem]
+    });
+  }
+
+
   return (
     <div>
       <ul>
-        {semNum.map((eachSem)=>(
+        {updateSem.map((eachSem)=>(
           <Semesters semNum={eachSem}/>
         ))}
       </ul>
       <div>
-        <h3><button>Add Semester</button></h3>
+        <h3><button onClick={addSemesterHandler}>Add Semester</button></h3>
       </div>
     </div>
   );
