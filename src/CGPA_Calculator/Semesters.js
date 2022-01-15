@@ -36,8 +36,9 @@ function Semesters(props)
         })
     }
 
-    function saveUpdateGPAPoints(enterUpdatePoints)
+    function saveUpdateGPAPointsHours(enterUpdatePoints)
     {
+        // This is A Package Code
         // Duplicate a DUMMY for each sem
         let temp_updateGPA = [...updateGPA];
 
@@ -45,9 +46,17 @@ function Semesters(props)
         {
             if(temp_updateGPA[i].id === enterUpdatePoints[0])
             {
-                let temp_Points = {...temp_updateGPA[i]};
-                temp_Points.points = +enterUpdatePoints[1];
-                temp_updateGPA[i] = temp_Points;
+                let temp_Points_Hours = {...temp_updateGPA[i]};
+                if(enterUpdatePoints[2]==="Points")
+                {
+                    temp_Points_Hours.points = +enterUpdatePoints[1];
+                    temp_updateGPA[i] = temp_Points_Hours;
+                }
+                else
+                {
+                    temp_Points_Hours.hours = +enterUpdatePoints[1];
+                    temp_updateGPA[i] = temp_Points_Hours;
+                }
                 
                 setUpdateGPA(temp_updateGPA);
             }
@@ -65,7 +74,7 @@ function Semesters(props)
                             <SubjectsList 
                                 key={eachUpdate.id}
                                 subjectData={eachUpdate}
-                                onSaveUpdateGPAPoints={saveUpdateGPAPoints}/>
+                                onSaveUpdateGPAPointsHours={saveUpdateGPAPointsHours}/>
                         ))}
                     </ul>
                 </div>
