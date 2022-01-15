@@ -15,7 +15,7 @@ import Semesters from "./CGPA_Calculator/Semesters";
 function App() {
 
   const [updateSem, setUpdateSem] = useState(semNum);
-  
+
   function addSemesterHandler()
   {
     const newSem = {
@@ -34,11 +34,11 @@ function App() {
     <div>
       <ul>
         {updateSem.map((eachSem)=>(
-          <Semesters semNum={eachSem}/>
+          <Semesters semData={eachSem}/>
         ))}
       </ul>
       <div>
-        <h3><button onClick={addSemesterHandler}>Add Semester</button></h3>
+        <h3><button onClick={addSemesterHandler}>Add Semester</button> CGPA : 0.00</h3>
       </div>
     </div>
   );
