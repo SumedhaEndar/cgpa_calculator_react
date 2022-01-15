@@ -36,6 +36,11 @@ function Semesters(props)
         })
     }
 
+    function saveUpdateGPAPoints(enteredUpdatePoints)
+    {
+        console.log(enteredUpdatePoints);
+    }
+
     return(
         <div>
             <li>
@@ -43,7 +48,10 @@ function Semesters(props)
                     <h2>Semester {props.semData.sem} <button>X</button></h2>
                     <ul>
                         {updateGPA.map((eachUpdate)=>(
-                            <SubjectsList />
+                            <SubjectsList 
+                                key={eachUpdate.id}
+                                subjectData={eachUpdate}
+                                onSaveUpdateGPAPoints={saveUpdateGPAPoints}/>
                         ))}
                     </ul>
                 </div>

@@ -34,7 +34,7 @@ function App() {
     <div>
       <ul>
         {updateSem.map((eachSem)=>(
-          <Semesters semData={eachSem}/>
+          <Semesters semData={eachSem} key={eachSem.id}/>
         ))}
       </ul>
       <div>
