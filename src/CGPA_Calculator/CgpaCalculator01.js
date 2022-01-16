@@ -52,7 +52,7 @@ function CgpaCalculator01(props)
                 setUpdateGPA(updateGPA);
             }
         }
-        console.log(updateGPA);
+        // console.log(updateGPA);
         calculateGPA();
     }
 
@@ -79,15 +79,23 @@ function CgpaCalculator01(props)
         {
             GPA = (0).toFixed(2);
         }        
-        setCalcGPA(GPA)
-        console.log(GPA);
+        setCalcGPA(GPA);
+        props.eachSemData.sem_gpa = +GPA;
+        props.eachSemData.sem_hours = +credit_hours;
+        props.onCalculateCGPA();
+        // console.log(GPA);
     }
 
-    
+    function deleteSemHandler() 
+    {
+        props.onDeleteSems(props.eachSemData.id);   
+        // console.log('Hello');
+    }
+
     return(
         <div>
             <li>
-                <h2> Semester {props.eachSemData.sem}</h2>
+                <h2> Semester {props.eachSemData.sem}<button onClick={deleteSemHandler}>X</button></h2>
                 <ul>
                     {updateGPA.map((eachUpdate)=>(
                         <CgpaCalculator02 
