@@ -95,7 +95,10 @@ function CgpaCalculator01(props)
     return(
         <div>
             <li>
-                <h2> Semester {props.eachSemData.sem}<button onClick={deleteSemHandler}>X</button></h2>
+                <h2> 
+                    Semester {props.eachSemData.sem}
+                    <button onClick={deleteSemHandler}>X</button>
+                </h2>
                 <ul>
                     {updateGPA.map((eachUpdate)=>(
                         <CgpaCalculator02 
